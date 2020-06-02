@@ -23,7 +23,7 @@ python DataprepareVideo.py --input_file output.mp4 --clip_start_min 0 --clip_sta
 ## 操作手册
 
 1. 在终端会显示出操作的方式
-![image](http://https://github.com/oilpig/annotation_tool/edit/master/images/operate.jpg)
+![image](https://github.com/oilpig/annotation_tool/tree/master/images/operate.jpg)
 2. 最终会生成以output命名的标签文件（output.json）和存放截取视频的文件夹output
 
 核心工具包来源于https://github.com/ale152/muvilab
