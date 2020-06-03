@@ -466,7 +466,7 @@ class Annotator:
     def show_label_guide(self):
         '''Show the labels available with the keyboard key to select them'''
         print('\n' + '-'*80)
-        print('Please press a number key to select a label and use left/right '
+        print('Please press l or k to navigate forward or backward label and use left/right '
               'click to add/remove labels')
         print('Labels available:')
         for li, label in enumerate(self.labels):
@@ -574,14 +574,26 @@ class Annotator:
             except (ValueError, TypeError):
                 print('Page must be a number')
                 
-        # Select label
-        if chr(key_input) in {chr(d) for d in range(ord('0'),ord('9')+1)}:
+        # # Select label
+        # if chr(key_input) in {chr(d) for d in range(ord('0'),ord('9')+1)}:
 
-            if int(chr(key_input)) > len(self.labels):
-                print('Error: label %s not implemented' % chr(key_input))
+        #     if int(chr(key_input)) > len(self.labels):
+        #         print('Error: label %s not implemented' % chr(key_input))
+        #     else:
+        #         self.selected_label = int(chr(key_input))-1
+        #         print('Label selected: %s' % self.labels[self.selected_label]['name'])
+
+        # Navigate labels
+        if chr(key_input) in {'l', 'R'}:
+            self.selected_label = (self.selected_label+1)%len(self.labels)
+            print('Label selected: %s' % self.labels[self.selected_label]['name'])
+
+        if chr(key_input) in {'k', 'K'}:
+            if self.selected_label == 0:
+                self.selected_label = len(self.labels)-1
             else:
-                self.selected_label = int(chr(key_input))-1
-                print('Label selected: %s' % self.labels[self.selected_label]['name'])
+                self.selected_label = self.selected_label - 1
+            print('Label selected: %s' % self.labels[self.selected_label]['name'])
         
         # Reviewing mode
         if chr(key_input) in {'r', 'R'}:
