@@ -42,6 +42,7 @@ def main():
     parser.add_argument('--clip_end_sec', help='the end second of clip part', required=True, type=float)
     parser.add_argument('--flag', nargs='+', help='the flags', required=True)
     parser.add_argument('--dur', help='the dur', required=True, type=int)
+    parser.add_argument('--n_show', help='num of window per page', default=100, type=int)
     args = parser.parse_args()
 
     prefix = args.input_file.split('.')[0]
@@ -73,7 +74,7 @@ def main():
     # print(flag_list)
 
     annotator = Annotator(flag_list,
-            clips_folder, sort_files_list=True, N_show_approx=100, screen_ratio=16/9, 
+            clips_folder, sort_files_list=True, N_show_approx=args.n_show, screen_ratio=16/9, 
             image_resize=1, loop_duration=None, annotation_file=label_file)
 
     # annotator = Annotator([
