@@ -10,7 +10,7 @@ ffmpeg -i input.mp4 -vf "scale=iw/4:ih/4" output.mp4
 ## 然后用标注工具进行标注
 
 ```
-python DataprepareVideo.py --input_file output.mp4 --clip_start_min 0 --clip_start_sec 0 --clip_end_min 40 --clip_end_sec 0 --flag play jump smash walk --dur 90
+python DataprepareVideo.py --input_file output.mp4 --clip_start_min 0 --clip_start_sec 0 --clip_end_min 40 --clip_end_sec 0 --flag play jump smash walk --dur 90 --n_show 16
 ```
 
 ## 参数含义
@@ -19,6 +19,7 @@ python DataprepareVideo.py --input_file output.mp4 --clip_start_min 0 --clip_sta
 #### --clip_start_min --clip_start_sec --clip_end_min --clip_end_sec 整段样本视频的开始和结束时间（分钟/秒）。以上面为例，从output.mp4里面选取了从0分种开始40分钟结束的视频,然后存在本地为output_clip.mp4
 #### --flag 需要标注的标签。以上面的代码为例，定义了三种标签，play/jump/smash/walk
 #### --dur 每段小视频的帧数。以上面的代码为例，每段小视频90帧
+#### --n_show 每页能够显示的窗口数量
 
 ## 操作手册
 
