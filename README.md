@@ -10,7 +10,7 @@ ffmpeg -i input.mp4 -vf "scale=iw/4:ih/4" output.mp4
 ## 然后用标注工具进行标注
 
 ```
-python DataprepareVideo.py --input_file output.mp4 --clip_start_min 0 --clip_start_sec 0 --clip_end_min 40 --clip_end_sec 0 --flag play jump smash walk --dur 90 --n_show 16
+python DataprepareVideo.py --input_file output.mp4 --clip_start_min 0 --clip_start_sec 0 --clip_end_min 40 --clip_end_sec 0 --flag play jump smash walk --dur 90 --n_show 16 --overlap 0.5
 ```
 
 ## 参数含义
@@ -20,6 +20,7 @@ python DataprepareVideo.py --input_file output.mp4 --clip_start_min 0 --clip_sta
 #### --flag 需要标注的标签。以上面的代码为例，定义了三种标签，play/jump/smash/walk
 #### --dur 每段小视频的帧数。以上面的代码为例，每段小视频90帧
 #### --n_show 每页能够显示的窗口数量
+#### --overlap 邻近的视频overlap的百分比，相互重叠的帧数：--dur * --overlap
 
 ## 操作手册
 
