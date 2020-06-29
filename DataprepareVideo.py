@@ -42,6 +42,7 @@ def main():
     parser.add_argument('--clip_end_sec', help='the end second of clip part', required=True, type=float)
     parser.add_argument('--flag', nargs='+', help='the flags', required=True)
     parser.add_argument('--dur', help='the dur', required=True, type=int)
+    parser.add_argument('--overlap', help='the overlap, between 0-1.0, float', required=True, type=float)
     parser.add_argument('--n_show', help='num of window per page', default=100, type=int)
     args = parser.parse_args()
 
@@ -86,7 +87,7 @@ def main():
     #        clips_folder, sort_files_list=True, N_show_approx=100, screen_ratio=16/9, 
     #        image_resize=1, loop_duration=None, annotation_file=label_file)
     print('Generating clips from the video...')
-    annotator.video_to_clips(target_file, clips_folder, clip_length=args.dur, overlap=0, resize=0.5)
+    annotator.video_to_clips(target_file, clips_folder, clip_length=args.dur, overlap=args.overlap, resize=0.5)
 
     # Run the annotator
     annotator.main()
